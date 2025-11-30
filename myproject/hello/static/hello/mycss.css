@@ -1,0 +1,118 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #fff;
+    color: #111;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #111;
+    font-weight: 500;
+}
+.nav-links li a:hover {
+    background-color: #33b9b4;
+}
+
+
+.btn-download {
+    padding: 10px 20px;
+    background-color: #40c0c4;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #4a90c5;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.5;
+}
+
+.hero-buttons a {
+    padding: 15px 35px;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: background 0.3s;
+}
+
+.btn-primary {
+    background-color: #4a90c5;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #357ab8;
+}
+
+.btn-secondary {
+    background-color: #40cfc4;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #33b9b4;
+}
+.sub {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sub:hover {
+    background-color: #45a049;
+}

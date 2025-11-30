@@ -1,0 +1,9 @@
+{% extends "hello/base.html" %}
+{% block content %}
+<h2>FAQ Details</h2>
+
+<p><strong>Question:</strong> {{ faq.question }}</p>
+<p><strong>Answer:</strong> {{ faq.answer }}</p>
+
+<a href="{% url 'faq_list' %}">Back</a>
+{% endblock %}

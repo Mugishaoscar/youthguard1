@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Location Detail</h2>
+
+<p><strong>Name:</strong> {{ location.name }}</p>
+<p><strong>Description:</strong> {{ location.description }}</p>
+
+<a href="{% url 'location_update' location.pk %}" class="sub">Edit</a>
+<a href="{% url 'location_delete' location.pk %}" class="sub">Delete</a>
+
+<br><br>
+<a href="{% url 'location_list' %}">Back to List</a>
+{% endblock %}

@@ -1,0 +1,40 @@
+<h2 class="mb-3">Reminder Settings</h2>
+
+<a href="{% url 'remindersetting_create' %}" class="btn btn-success mb-3" style="text-decoration:none;">
+    + Create New Reminder
+</a>
+
+{% if reminders %}
+<table style="border: 1px solid black; border-collapse: collapse; width: 100%;">
+
+    <!-- Table Header -->
+    <tr>
+        <th style="border: 1px solid black; padding: 8px;">User</th>
+        <th style="border: 1px solid black; padding: 8px;">Reminder Time</th>
+        <th style="border: 1px solid black; padding: 8px;">Action</th>
+    </tr>
+
+    <!-- Loop -->
+    {% for item in reminders %}
+    <tr>
+        <td style="border: 1px solid black; padding: 8px;">
+            {{ item.user.user_name }}
+        </td>
+
+        <td style="border: 1px solid black; padding: 8px;">
+            {{ item.reminder_time }}
+        </td>
+
+        <td style="border: 1px solid black; padding: 8px;">
+            <a href="{% url 'remindersetting_detail' item.id %}" class="btn btn-primary btn-sm" style="text-decoration:none;">View</a>
+            <a href="{% url 'remindersetting_update' item.id %}" class="btn btn-warning btn-sm" style="text-decoration:none;">Edit</a>
+            <a href="{% url 'remindersetting_delete' item.id %}" class="btn btn-danger btn-sm" style="text-decoration:none;">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% else %}
+<p class="text-muted">No reminder settings found.</p>
+{% endif %}

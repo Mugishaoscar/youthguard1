@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ user.user_name }}</title>
+</head>
+<body>
+    <h1>{{ user.user_name }}</h1>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Preferences:</strong> {{ user.preferences }}</p>
+    
+    <a href="{% url 'userprofile_update' user.id %}">Edit</a> |
+    <a href="{% url 'userprofile_delete' user.id %}">Delete</a> |
+    <a href="{% url 'userprofile_list' %}">Back to list</a>
+</body>
+</html>

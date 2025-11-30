@@ -1,0 +1,35 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeGuard</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'hello/mycss.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{% static 'hello/img/logo.jpeg' %}" alt="">
+            <span>SafeGuard</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Our Mission</a></li>
+            <li><a href="#">Get Started</a></li>
+        </ul>
+        <div class="app"><a href="#" class="btn-download">Download App</a></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Never Miss a Dose.<span>Always</br> Know Where to Go.</span></h1>
+        <p>SafeGuard, The Smart Contraceptive Locator and Reminder System is your innovative, confidential partner for consistent and informed sexual and reproductive health management.</p>
+        <div class="hero-buttons">
+            <a href="#" class="btn-primary">Get The App Now</a>
+            <a href="#" class="btn-secondary">See How It Works</a>
+        </div>
+    </section>
+</body>
+</html>

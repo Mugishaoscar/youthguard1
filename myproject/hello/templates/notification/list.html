@@ -1,0 +1,42 @@
+{% extends "hello/base.html" %}
+{% block content %}
+
+<h2 class="mb-3">Notifications</h2>
+
+<a href="{% url 'notification_create' %}" class="btn btn-success mb-3" style="text-decoration:none;">
+    + Create Notification
+</a>
+
+{% if items %}
+<table style="border: 1px solid black; border-collapse: collapse; width: 100%;">
+
+    <tr>
+        <th style="border: 1px solid black; padding: 8px;">User</th>
+        <th style="border: 1px solid black; padding: 8px;">Type</th>
+        <th style="border: 1px solid black; padding: 8px;">Message</th>
+        <th style="border: 1px solid black; padding: 8px;">Time</th>
+        <th style="border: 1px solid black; padding: 8px;">Actions</th>
+    </tr>
+
+    {% for item in items %}
+    <tr>
+        <td style="border: 1px solid black; padding: 8px;">{{ item.user }}</td>
+        <td style="border: 1px solid black; padding: 8px;">{{ item.notification_type }}</td>
+        <td style="border: 1px solid black; padding: 8px;">{{ item.message|truncatewords:8 }}</td>
+        <td style="border: 1px solid black; padding: 8px;">{{ item.timestamp }}</td>
+
+        <td style="border: 1px solid black; padding: 8px;">
+            <a href="{% url 'notification_detail' item.id %}" class="btn btn-primary btn-sm" style="text-decoration:none;">View</a>
+            <a href="{% url 'notification_update' item.id %}" class="btn btn-warning btn-sm" style="text-decoration:none;">Edit</a>
+            <a href="{% url 'notification_delete' item.id %}" class="btn btn-danger btn-sm" style="text-decoration:none;">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% else %}
+<p class="text-muted">No notifications found.</p>
+{% endif %}
+
+{% endblock %}

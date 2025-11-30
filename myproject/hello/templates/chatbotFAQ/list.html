@@ -1,0 +1,37 @@
+{% extends "hello/base.html" %}
+{% block content %}
+
+<h2 class="mb-3">FAQ List</h2>
+
+<a href="{% url 'faq_create' %}" class="btn btn-success mb-3" style="text-decoration:none;">
+    + Add FAQ
+</a>
+
+{% if faqs %}
+<table style="border: 1px solid black; border-collapse: collapse; width: 100%;">
+
+    <tr>
+        <th style="border: 1px solid black; padding: 8px;">Question</th>
+        <th style="border: 1px solid black; padding: 8px;">Actions</th>
+    </tr>
+
+    {% for f in faqs %}
+    <tr>
+        <td style="border: 1px solid black; padding: 8px;">
+            {{ f.question|truncatewords:10 }}
+        </td>
+        <td style="border: 1px solid black; padding: 8px;">
+            <a href="{% url 'faq_detail' f.id %}" class="btn btn-primary btn-sm" style="text-decoration:none;">View</a>
+            <a href="{% url 'faq_update' f.id %}" class="btn btn-warning btn-sm" style="text-decoration:none;">Edit</a>
+            <a href="{% url 'faq_delete' f.id %}" class="btn btn-danger btn-sm" style="text-decoration:none;">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% else %}
+<p class="text-muted">No FAQs available.</p>
+{% endif %}
+
+{% endblock %}

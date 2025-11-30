@@ -1,0 +1,16 @@
+{% extends "hello/base.html" %}
+{% block content %}
+
+<h2>Update Notification</h2>
+
+<div class="card p-4 shadow-sm">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-success">Update</button>
+        <a href="{% url 'notification_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+
+{% endblock %}

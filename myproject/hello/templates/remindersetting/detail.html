@@ -1,0 +1,7 @@
+<h2>Reminder Details</h2>
+<p>User: {{ reminder.user.user_name }}</p>
+<p>Time: {{ reminder.reminder_time }}</p>
+<p>Message: {{ reminder.reminder_message }}</p>
+
+<a href="{% url 'remindersetting_update' reminder.id %}">Edit</a>
+<a href="{% url 'remindersetting_list' %}">Back</a>

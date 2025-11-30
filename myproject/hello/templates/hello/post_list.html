@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog Posts{% endblock %}
+
+{% block content %}
+<h2>Blog Posts</h2>
+
+{% for post in posts %}
+    <h3>{{ post.title }}</h3>
+    <p>By {{ post.author.username }} — {{ post.created_at }}</p>
+    <p>{{ post.content|truncatewords:30 }}</p>
+{% empty %}
+    <p>No posts yet.</p>
+{% endfor %}
+{% endblock %}
