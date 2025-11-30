@@ -70,7 +70,7 @@ class StockItem(models.Model):
     quantity = models.IntegerField()
 
     def __str__(self):
-        return f"{self.type.category} @ {self.location.location_name}"
+        return f"{self.type.category} @ {self.location.name}"
     
 class IoTReading(models.Model):
     device_id = models.IntegerField()
@@ -89,4 +89,4 @@ class StockAlert(models.Model):
     timestamp = models.DateTimeField()
 
     def __str__(self):
-        return f"Alert at {self.location.location_name}"
+        return f"Alert at {self.location.name}"

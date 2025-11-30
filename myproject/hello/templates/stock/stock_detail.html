@@ -1,0 +1,15 @@
+{% extends "hello/base.html" %}
+{% block content %}
+
+<h2>Stock Item Details</h2>
+
+<ul>
+    <li><strong>Type:</strong> {{ item.type }}</li>
+    <li><strong>Location:</strong> {{ item.location }}</li>
+    <li><strong>Quantity:</strong> {{ item.quantity }}</li>
+</ul>
+
+<a href="{% url 'stock_update' item.id %}" class="btn btn-warning">Edit</a>
+<a href="{% url 'stock_list' %}" class="btn btn-secondary">Back</a>
+
+{% endblock %}

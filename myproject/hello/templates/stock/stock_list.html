@@ -1,0 +1,39 @@
+{% extends "hello/base.html" %}
+{% block content %}
+
+<h2 class="mb-3">Stock Items</h2>
+
+<a href="{% url 'stock_create' %}" class="btn btn-success mb-3" style="text-decoration:none;">
+    + Add Stock Item
+</a>
+
+{% if items %}
+<table style="border: 1px solid black; border-collapse: collapse; width: 100%;">
+
+    <tr>
+        <th style="border: 1px solid black; padding: 8px;">Type</th>
+        <th style="border: 1px solid black; padding: 8px;">Location</th>
+        <th style="border: 1px solid black; padding: 8px;">Quantity</th>
+        <th style="border: 1px solid black; padding: 8px;">Actions</th>
+    </tr>
+
+    {% for item in items %}
+    <tr>
+        <td style="border: 1px solid black; padding: 8px;">{{ item.type }}</td>
+        <td style="border: 1px solid black; padding: 8px;">{{ item.location }}</td>
+        <td style="border: 1px solid black; padding: 8px;">{{ item.quantity }}</td>
+
+        <td style="border: 1px solid black; padding: 8px;">
+            <a href="{% url 'stock_detail' item.id %}" class="btn btn-primary btn-sm" style="text-decoration:none;">View</a>
+            <a href="{% url 'stock_update' item.id %}" class="btn btn-warning btn-sm" style="text-decoration:none;">Edit</a>
+            <a href="{% url 'stock_delete' item.id %}" class="btn btn-danger btn-sm" style="text-decoration:none;">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% else %}
+<p class="text-muted">No stock items found.</p>
+{% endif %}
+
+{% endblock %}

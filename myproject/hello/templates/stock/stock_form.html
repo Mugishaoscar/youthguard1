@@ -1,0 +1,14 @@
+{% extends "hello/base.html" %}
+{% block content %}
+
+<h2>{{ form.instance.id|yesno:"Update Stock Item,Create Stock Item" }}</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button class="btn btn-success" type="submit">Save</button>
+    <a href="{% url 'stock_list' %}" class="btn btn-secondary">Cancel</a>
+</form>
+
+{% endblock %}

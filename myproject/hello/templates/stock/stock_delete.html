@@ -1,0 +1,14 @@
+{% extends "hello/base.html" %}
+{% block content %}
+
+<h2>Delete Stock Item</h2>
+
+<p>Are you sure you want to delete <strong>{{ item }}</strong>?</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a href="{% url 'stock_list' %}" class="btn btn-secondary">Cancel</a>
+</form>
+
+{% endblock %}

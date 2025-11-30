@@ -57,8 +57,8 @@ urlpatterns = [
     path("notification/delete/<int:id>/", views.notification_delete, name="notification_delete"),
 
     #stockitems
-    path("", views.stock_list, name="stock_list"),
-    path("create/", views.stock_create, name="stock_create"),
+    path("stock", views.stock_list, name="stock_list"),
+    path("stock/create/", views.stock_create, name="stock_create"),
     path("<int:id>/", views.stock_detail, name="stock_detail"),
     path("<int:id>/update/", views.stock_update, name="stock_update"),
     path("<int:id>/delete/", views.stock_delete, name="stock_delete"),
