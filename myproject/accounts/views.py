@@ -23,3 +23,31 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect("login")
+
+def register_view(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        email = request.POST.get("email")
+        pass1 = request.POST.get("password1")
+        pass2 = request.POST.get("password2")
+
+        if pass1 != pass2:
+            messages.error(request, "Passwords do not match")
+            return redirect("register")
+
+        if User.objects.filter(username=username).exists():
+            messages.error(request, "Username already taken")
+            return redirect("register")
+
+        if User.objects.filter(email=email).exists():
+            messages.error(request, "Email already registered")
+            return redirect("register")
+
+        user = User.objects.create_user(username=username, email=email, password=pass1)
+        user.save()
+
+        messages.success(request, "Account created! Please login.")
+        return redirect("login")
+
+    return render(request, "accounts/register.html")
+
